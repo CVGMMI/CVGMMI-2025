@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: Computer Vision and Generative Models for Medical Imaging - ICIAP 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 56px; /* Adjust padding based on navbar height */
+        }
+
+        /* ---- MODIFIED HERO SECTION ---- */
+        .hero-section {
+            /* background-color: #e9ecef; */ /* Replaced with background image */
+            padding: 6rem 1rem; /* Increased padding slightly for better look with background */
+            margin-bottom: 2rem;
+            position: relative; /* Needed for the overlay */
+            background-image: url('./assets/background.gif'); /* Your background image */
+            background-size: cover; /* Cover the entire section */
+            background-position: center center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            color: #ffffff; /* Set default text color to white */
+            text-align: center; /* Ensure content is centered */
+        }
+
+        /* Overlay */
+        .hero-section::before {
+            content: ''; /* Necessary for pseudo-elements */
+            position: absolute; /* Position relative to .hero-section */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+            z-index: 1; /* Place overlay above background image */
+        }
+
+        /* Ensure content is above overlay */
+        .hero-section .container {
+            position: relative; /* Position relative to stacking context */
+            z-index: 2; /* Place content above the overlay */
+        }
+
+        /* Optional: Add text shadow for even better readability */
+         .hero-section h1, .hero-section p {
+             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+         }
+        /* ---- END MODIFIED HERO SECTION ---- */
+
+        .section-padding {
+            padding: 3rem 1rem;
+        }
+        .card-img-top {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center;
+            background-color: #adb5bd;
+        }
+        .dates-list li {
+            font-weight: 500;
+        }
+        .dates-list span {
+            font-weight: normal;
+            color: #495057;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .navbar {
+             box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        h2 {
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .speaker-status {
+            font-style: italic;
+            color: #6c757d;
+        }
+        /* Make speaker status more visible on cards */
+        .card .speaker-status {
+             color: #495057; /* Darker grey */
+        }
+        .card .speaker-status.text-success {
+             color: #198754 !important; /* Ensure confirmed status is green */
+        }
+
+        .card-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+         .card-title a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CVGMMI @ ICIAP 2025</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#topics">Topics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#call-for-papers">Call for Papers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#organizers">Organizers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#speakers">Invited Speakers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#committee">Committee</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#details">Workshop Details</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Workshop on Computer Vision and Generative Models for Medical Imaging</h1>
+            <p class="lead">Held in conjunction with ICIAP 2025</p>
+            <p class="lead">September 15-16, 2025</p>
+            <p>Exploring innovative AI applications at the intersection of computer vision, generative models, and medical imaging.</p>
+            <a href="#call-for-papers" class="btn btn-primary btn-lg mt-3">Submit Your Paper</a>
+            <p class="mt-2">Submission Deadline: June 1, 2025</p>
+        </div>
+    </header>
+    <main class="container">
+
+        <section id="about" class="section-padding">
+            <h2>About the Workshop</h2>
+            <p>This workshop focuses on the intersection of computer vision, generative models, and medical imaging, exploring innovative AI applications in healthcare. It aims to bring together researchers, clinicians, and industry professionals to present and discuss novel methodologies that address key challenges in medical imaging and healthcare.</p>
+            <p>In particular, the workshop highlights the transformative potential of generative models and advanced computational techniques in areas such as disease progression modeling, synthetic data generation, multimodal data integration, and both imaging and non-imaging diagnostics. These approaches have the potential to revolutionize precision medicine by improving diagnostic accuracy, enhancing personalized care, and addressing data scarcity issues in clinical research.</p>
+        </section>
+
+        <section id="topics" class="section-padding bg-light rounded">
+            <h2>Topics Covered</h2>
+            <p>The workshop will cover a range of cutting-edge topics, including but not limited to:</p>
+            <ul>
+                <li><strong>Novel Deep Learning Architectures for Medical Data Analysis and Synthesis:</strong> Addressing the critical need for large, diverse datasets in medical research.</li>
+                <li><strong>Generative Models for Predictive Healthcare:</strong> Facilitating the modeling and simulation of complex health conditions, enhancing understanding, forecasting, and decision-making for improved patient outcomes.</li>
+                <li><strong>Multimodal Learning Approaches:</strong> Integrating diverse data types (imaging, clinical, genetic, lifestyle) for more comprehensive patient analysis.</li>
+                <li><strong>Privacy-Preserving Techniques for Healthcare Data:</strong> Crucial for maintaining patient confidentiality while advancing medical research.</li>
+                <li><strong>Explainable AI Methods for Medical Image Interpretation:</strong> Enhancing trust and adoption of AI in clinical settings by providing interpretable results.</li>
+                <li><strong>Clinical Applications of AI-Powered Medical Imaging Analysis:</strong> Demonstrating real-world impact of AI in improving diagnostic accuracy and treatment planning.</li>
+                <li><strong>Natural Language Processing (NLP) Techniques for Clinical Narratives:</strong> Unlocking valuable information from unstructured medical text data.</li>
+                <li><strong>Ethical Considerations in AI-Powered Healthcare:</strong> Addressing critical concerns about bias, fairness, and responsible AI deployment in healthcare.</li>
+            </ul>
+        </section>
+
+         <section id="relation" class="section-padding">
+            <h2>Relation to Previous Conferences & Workshops</h2>
+             <p>This workshop builds upon themes explored in previous ICIAP, ICPR, and ECCV events focused on medical image analysis. However, it distinguishes itself through:</p>
+             <ul>
+                <li>A stronger emphasis on <strong>generative models</strong> for medical data simulation.</li>
+                <li>Integration of <strong>multimodal data types</strong> beyond just imaging.</li>
+                <li>Enhanced emphasis on <strong>privacy-preserving techniques</strong> and <strong>ethical considerations</strong>.</li>
+             </ul>
+        </section>
+
+        <section id="call-for-papers" class="section-padding bg-light rounded">
+            <h2>Call for Papers</h2>
+            <p>We invite submissions to the workshop session "Computer Vision and Generative Models for Medical Imaging" at ICIAP 2025. This workshop explores innovative applications of AI and computer vision in healthcare, with a focus on medical imaging and generative models.</p>
+
+            <h3 class="mt-4">Topics of Interest Include:</h3>
+            <ul>
+                <li>Novel deep learning architectures for medical data synthesis</li>
+                <li>Generative models for simulating disease progression</li>
+                <li>Multimodal learning approaches in healthcare</li>
+                <li>Privacy-preserving techniques for sensitive medical data</li>
+                <li>Explainable AI methods for medical image interpretation</li>
+                <li>Clinical applications of AI-powered medical imaging analysis</li>
+                <li>NLP techniques for processing clinical narratives</li>
+                <li>Ethical considerations in AI-powered healthcare</li>
+            </ul>
+
+            <h3 class="mt-4">Submission Guidelines</h3>
+            <ul>
+                <li>Papers should be <strong>6-12 pages long</strong> in LNCS format, including references.</li>
+                <li>Submissions must be original and not previously published.</li>
+                <li>All papers will undergo a <strong>double-blind peer review</strong> process.</li>
+                <li>Accepted papers will be included in the ICIAP 2025 proceedings (Springer LNCS series) and presented at the workshop.</li>
+                <li>Selected papers will be considered for oral presentation; all accepted papers will be presented as posters.</li>
+            </ul>
+            <a href="#" class="btn btn-primary mt-3">Submit Your Paper Here</a>
+
+
+            <h3 class="mt-4">Important Dates</h3>
+            <ul class="list-unstyled dates-list">
+                <li><strong>Submission Deadline:</strong> <span>June 1, 2025</span></li>
+                <li><strong>Notification to Authors:</strong> <span>July 1, 2025</span></li>
+                <li><strong>Camera-Ready Submission:</strong> <span>July 25, 2025</span></li>
+                <li><strong>Workshop Dates:</strong> <span>September 15-16, 2025</span></li>
+            </ul>
+        </section>
+
+        <section id="organizers" class="section-padding">
+            <h2>Organizers</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="assets/daniele.jpeg" class="card-img-top" alt="Prof. Daniele Ravì"> <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Prof. Daniele Ravì (Chair)</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University of Messina & University College London</h6>
+                            <p class="card-text small flex-grow-1">
+                                <strong>Background:</strong> Associate Professor with extensive expertise in AI for medical imaging, image-guided surgery, disease progression modeling, and smart sensing. BSc/MSc CompSci, PhD CompVision (UniCT). Postdoc at Imperial/UCL, industry experience. Published >18 Q1 journal papers, holds patent. Secured >£500k in grants.
+                                <br><strong>Research Interests:</strong> Computer vision, ML, image-guided surgery, smart sensing (MRI, endomicroscopy, endoscopy, hyperspectral), clinical translation, CNNs, GANs, VAEs.
+                            </p>
+                             <a href="mailto:d.ravi@unime.it" class="card-link small">d.ravi@unime.it</a>
+                             <a href="mailto:d.ravi@ucl.ac.uk" class="card-link small">d.ravi@ucl.ac.uk</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="assets/stefano.jpg" class="card-img-top" alt="Dr. Stefano Blumberg"> <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Dr. Stefano Blumberg</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University College London</h6>
+                            <p class="card-text small flex-grow-1">
+                                <strong>Background:</strong> Researcher and ML scientist (>7 yrs exp). PhD CompSci (UCL) focused on deep learning for 3D MR image enhancement. Over 25 publications, 500+ citations (ICLR, MICCAI). Developed Deformably-Scaled Transposed Convolution.
+                                <br><strong>Experience:</strong> Work on task-driven feature selection (ICLR 2024), game-theoretic risk management (ICML 2023). G-Research grant, AI competition winner (CDMRI 2019 MUDI). Internships at Meta Reality Labs (Oculus DL) & Amazon Lab126 (unsupervised CV).
+                            </p>
+                             <a href="mailto:stefano.blumberg.17@ucl.ac.uk" class="card-link small">stefano.blumberg.17@ucl.ac.uk</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                     <div class="card h-100">
+                        <img src="assets/lemuel.jpg" class="card-img-top" alt="Dr. Lemuel Puglisi"> <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Dr. Lemuel Puglisi</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University of Catania & University College London & Queen Square Analytics</h6>
+                            <p class="card-text small flex-grow-1">
+                                <strong>Background:</strong> Strong background in CS, AI, medical imaging. Focus on disease progression modeling, brain age estimation, medical image analysis. BSc/MSc CompSci (UniCT, Hons). PhD student (UniCT) since 2023.
+                                <br><strong>Experience:</strong> Imaging Research Scientist at Queen Square Analytics (UCL spin-out) since 2022 (medical image analysis for clinical trials). Visiting researcher at UCL Hawkes Institute (MANIFOLD lab) since Feb 2024. Publications at MICCAI, MIDL, and Medical Image Analysis (Q1).
+                            </p>
+                             <a href="mailto:lemuel.puglisi@phd.unict.it" class="card-link small">lemuel.puglisi@phd.unict.it</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="speakers" class="section-padding bg-light rounded">
+            <h2>Invited Speakers</h2>
+             <div class="row">
+                 <!-- <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                         <img src="assets/arman.jpg" class="card-img-top" alt="Prof. Arman Eshaghi"> <div class="card-body">
+                            <h5 class="card-title">Prof. Arman Eshaghi</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University College London</h6>
+                             <p class="speaker-status">(Tentative)</p>
+                             <p class="card-text small">Principal Research Fellow and NIHR Advanced Fellow at UCL. Specializes in applying AI/ML to neuroimaging data, particularly multiple sclerosis research. Develops advanced AI models for disease progression modeling and diagnostic accuracy in neurological conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                         <img src="assets/james.jpg" class="card-img-top" alt="Prof. James Cole"> <div class="card-body">
+                            <h5 class="card-title">Prof. James Cole</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University College London</h6>
+                             <p class="speaker-status">(Tentative)</p>
+                            <p class="card-text small">Professor of Neuroimage Computing at UCL (CMIC & DRC). Research uses structural/functional MRI for brain aging, neurodegeneration, dementia. Developed ML techniques for predictive models of brain age from MRI data.</p>
+                        </div>
+                    </div>
+                </div> -->
+                 <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                         <img src="assets/celesti.jpeg" class="card-img-top" alt="Prof. Antonio Celesti"> <div class="card-body">
+                            <h5 class="card-title">Prof. Antonio Celesti</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">University of Messina</h6>
+                             <p class="speaker-status fw-bold text-success">(Confirmed)</p>
+                             <p class="card-text small">Full Professor of Computer Science at UniMe. Research focuses on distributed systems, cloud/edge computing, IoT, and ML applications in healthcare. Extensive experience in cloud architectures, security, resource management in federated cloud environments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed"> <div class="card-body">
+                            <h5 class="card-title">Not Confirmed</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">N/A</h6>
+                             <p class="speaker-status">(Tentative)</p>
+                             <p class="card-text small">N/A</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed"> <div class="card-body">
+                            <h5 class="card-title">Not Confirmed</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">N/A</h6>
+                             <p class="speaker-status">(Tentative)</p>
+                             <p class="card-text small">N/A</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="committee" class="section-padding">
+            <h2>Program Committee</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Prof. Daniele Ravì, UniMe</li>
+                <li class="list-group-item">Dr. Lemuel Puglisi, UniCt</li>
+                <li class="list-group-item">Dr. Giovanni Lonia, UniMe</li>
+                <!-- <li class="list-group-item">Prof. Razvan Marinescu, UC Santa Cruz</li> NOT CONFIRMED-->
+                <li class="list-group-item">Dr. Mattia Litrico, UniCt</li>
+                <li class="list-group-item">Dr. Francesco Guardera, UniCt</li>
+                <!-- <li class="list-group-item">Dr. Marco Lorenzi, Inria</li> NOT CONFIRMED-->
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-muted">
+        <div class="container">
+            <p>&copy; 2025 Workshop on Computer Vision and Generative Models for Medical Imaging | ICIAP 2025</p>
+            <p>Contact Workshop Chair: <a href="mailto:d.ravi@unime.it">Prof. Daniele Ravì</a></p>
+            </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Example: Smooth scrolling for navbar links (Optional)
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Calculate position considering the fixed navbar height
+                    const offsetTop = targetElement.offsetTop - 56; // Adjust 56 if navbar height changes
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
