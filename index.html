@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop: Computer Vision and Generative Models for Medical Imaging - ICIAP 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
             padding-top: 56px; /* Adjust padding based on navbar height */
@@ -13,37 +14,33 @@
 
         /* ---- MODIFIED HERO SECTION ---- */
         .hero-section {
-            /* background-color: #e9ecef; */ /* Replaced with background image */
-            padding: 6rem 1rem; /* Increased padding slightly for better look with background */
+            padding: 6rem 1rem;
             margin-bottom: 2rem;
-            position: relative; /* Needed for the overlay */
-            background-image: url('./assets/background.gif'); /* Your background image */
-            background-size: cover; /* Cover the entire section */
-            background-position: center center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            color: #ffffff; /* Set default text color to white */
-            text-align: center; /* Ensure content is centered */
+            position: relative;
+            background-image: url('./assets/background.gif'); /* Ensure this path is correct */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            text-align: center;
         }
 
-        /* Overlay */
         .hero-section::before {
-            content: ''; /* Necessary for pseudo-elements */
-            position: absolute; /* Position relative to .hero-section */
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
-            z-index: 1; /* Place overlay above background image */
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
-        /* Ensure content is above overlay */
         .hero-section .container {
-            position: relative; /* Position relative to stacking context */
-            z-index: 2; /* Place content above the overlay */
+            position: relative;
+            z-index: 2;
         }
 
-        /* Optional: Add text shadow for even better readability */
          .hero-section h1, .hero-section p {
              text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
          }
@@ -57,15 +54,9 @@
             aspect-ratio: 1 / 1;
             object-fit: cover;
             object-position: center;
-            background-color: #adb5bd;
+            background-color: #adb5bd; /* Fallback color */
         }
-        .dates-list li {
-            font-weight: 500;
-        }
-        .dates-list span {
-            font-weight: normal;
-            color: #495057;
-        }
+        /* Removed specific .dates-list style here as it's handled in the #call-for-papers section */
         footer {
             background-color: #f8f9fa;
             padding: 2rem 0;
@@ -74,7 +65,7 @@
         .navbar {
              box-shadow: 0 2px 4px rgba(0,0,0,.1);
         }
-        h2 {
+        h2 { /* Default h2 styling */
             border-bottom: 2px solid #dee2e6;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
@@ -83,12 +74,11 @@
             font-style: italic;
             color: #6c757d;
         }
-        /* Make speaker status more visible on cards */
         .card .speaker-status {
-             color: #495057; /* Darker grey */
+             color: #495057;
         }
         .card .speaker-status.text-success {
-             color: #198754 !important; /* Ensure confirmed status is green */
+             color: #198754 !important;
         }
 
         .card-title a {
@@ -98,6 +88,96 @@
          .card-title a:hover {
             text-decoration: underline;
         }
+
+        /* --- Styles for the Call for Papers Section --- */
+        #call-for-papers {
+            /* Basic section styling is already applied via .section-padding, .bg-light, .rounded, .shadow-sm */
+        }
+
+        #call-for-papers h2 {
+            font-weight: bold;
+            color: #0d6efd; /* Bootstrap primary color */
+            border-bottom: none; /* Override default h2 border */
+            margin-bottom: 1.5rem !important;
+        }
+
+        #call-for-papers .lead {
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        #call-for-papers .list-styled {
+             padding-left: 1.5rem; /* Indent list */
+        }
+         #call-for-papers .list-styled li {
+             position: relative;
+             padding-left: 1.2rem; /* Space for icon */
+             margin-bottom: 0.5rem;
+         }
+        #call-for-papers .list-styled li::before {
+            content: "✓"; /* Checkmark */
+            position: absolute;
+            left: 0;
+            color: #198754; /* Bootstrap success color */
+            font-weight: bold;
+        }
+
+        #call-for-papers .list-group-item {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background-color: transparent;
+            border-left: 0;
+            border-right: 0;
+        }
+         #call-for-papers .list-group-flush > .list-group-item:last-child {
+             border-bottom-width: 0;
+         }
+          #call-for-papers .list-group-flush > .list-group-item:first-child {
+             border-top-width: 0;
+         }
+
+        /* Style for the separate Dates box list */
+        #call-for-papers .dates-list li {
+            font-size: 1.05rem;
+        }
+        #call-for-papers .dates-list span.badge {
+            /* font-size: 1rem; /* Resized with fs-6 utility */
+             vertical-align: middle;
+        }
+        #call-for-papers .dates-list span:not(.badge) { /* Style non-badge dates */
+            font-weight: 500;
+             color: #495057;
+        }
+
+        /* Hover effect for boxes within Call for Papers */
+         #call-for-papers .border.rounded:hover {
+             box-shadow: 0 .5rem 1rem rgba(0,0,0,.10)!important;
+             transition: box-shadow 0.3s ease-in-out;
+         }
+
+         /* Ensure icons are vertically aligned */
+         .bi {
+            vertical-align: -0.125em; /* Adjust as needed */
+            margin-right: 0.3em;
+         }
+
+         /* Links within Call for Papers */
+        #call-for-papers a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+         #call-for-papers a:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+         #call-for-papers .btn-primary {
+              padding: 0.75rem 1.5rem;
+              text-decoration: none !important; /* Ensure no underline on button text */
+         }
+        #call-for-papers .btn-primary:hover {
+             text-decoration: none !important;
+         }
+        /* --- End Styles for Call for Papers --- */
 
     </style>
 </head>
@@ -128,8 +208,7 @@
                         <a class="nav-link" href="#committee">Committee</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#details">Workshop Details</a>
-                    </li>
+                        <a class="nav-link" href="#details">Workshop Details</a> </li>
                 </ul>
             </div>
         </div>
@@ -142,9 +221,9 @@
             <p class="lead">September 15-16, 2025</p>
             <p>Exploring innovative AI applications at the intersection of computer vision, generative models, and medical imaging.</p>
             <a href="#call-for-papers" class="btn btn-primary btn-lg mt-3">Submit Your Paper</a>
-            <p class="mt-2">Submission Deadline: June 1, 2025</p>
-        </div>
+            <p class="mt-2">Submission Deadline: <span class="fw-bold">June 14, 2025</span></p> </div>
     </header>
+
     <main class="container">
 
         <section id="about" class="section-padding">
@@ -164,58 +243,90 @@
                 addressing data scarcity issues in clinical research.</p>
         </section>
 
-        <section id="call-for-papers" class="section-padding bg-light rounded">
-            <h2>Call for Papers</h2>
-            <p>We invite submissions to the workshop session "Computer Vision and Generative Models for Medical Imaging" at ICIAP 2025. This workshop explores innovative applications of AI and computer vision in healthcare, with a focus on medical imaging and generative models.</p>
-
-
-            <h3 class="mt-4">Topics of Interest Include:</h3>
-            <ul>
-                <li><strong>Novel Deep Learning Architectures for Medical Data Analysis and Synthesis:</strong> Addressing the critical need for large, diverse datasets in medical research.</li>
-                <li><strong>Generative Models for Predictive Healthcare:</strong> Facilitating the modeling and simulation of complex health conditions, enhancing understanding, forecasting, and decision-making for improved patient outcomes.</li>
-                <li><strong>Multimodal Learning Approaches:</strong> Integrating diverse data types (imaging, clinical, genetic, lifestyle) for more comprehensive patient analysis.</li>
-                <li><strong>Privacy-Preserving Techniques for Healthcare Data:</strong> Crucial for maintaining patient confidentiality while advancing medical research.</li>
-                <li><strong>Explainable AI Methods for Medical Image Interpretation:</strong> Enhancing trust and adoption of AI in clinical settings by providing interpretable results.</li>
-                <li><strong>Clinical Applications of AI-Powered Medical Imaging Analysis:</strong> Demonstrating real-world impact of AI in improving diagnostic accuracy and treatment planning.</li>
-                <li><strong>Natural Language Processing (NLP) Techniques for Clinical Narratives:</strong> Unlocking valuable information from unstructured medical text data.</li>
-                <li><strong>Ethical Considerations in AI-Powered Healthcare:</strong> Addressing critical concerns about bias, fairness, and responsible AI deployment in healthcare.</li>
-            </ul>
-
-            <h3 class="mt-4">Submission Guidelines</h3>
-            <p>
-                Submitted papers must not exceed 12 pages, including references.
-                Only original work that has not been previously published or concurrently
-                submitted to other venues will be considered for inclusion in the proceedings.
-                All submissions must be in PDF format and submitted via the
-                <a href="https://easychair.org/conferences/?conf=cvgmmi2025">EasyChair system</a>.
-                Accepted papers will be published in a joint post-workshop proceedings
-                volume as part of the
-                <a href="https://www.springer.com/series/0558">Springer Lecture Notes in Computer Science (LNCS) series</a>,
-                which is indexed in Web of Science, Scopus, EI Engineering Index, Google Scholar,
-                DBLP, and other major databases. Authors are encouraged to prepare and submit
-                their manuscripts using the official
-                <a href="https://drive.google.com/file/d/1NxtKBIzZARUUNeNuCUNIA6XtQ0RtL1NI/view?usp=sharing">LNCS template
-                (<a href="https://www.overleaf.com/read/bpkfqrbhcrcg">Overleaf Template</a>).
+        <section id="call-for-papers" class="section-padding bg-light rounded shadow-sm">
+            <h2 class="text-center mb-4">
+                <i class="bi bi-megaphone-fill"></i> 📣 Call for Papers: Share Your Innovations!
+            </h2>
+            <p class="lead text-center mb-5">
+                We invite you to submit your cutting-edge research to the <strong>Workshop on Computer Vision and Generative Models for Medical Imaging (CVGMMI)</strong>, held in conjunction with ICIAP 2025. Join us in exploring the transformative potential of AI in healthcare!
             </p>
 
-            <a href="https://easychair.org/conferences/?conf=cvgmmi2025" class="btn btn-primary mt-3">Submit Your Paper Here</a>
+            <div class="row gy-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="p-4 border rounded h-100 bg-white">
+                        <h3 class="mb-3"><i class="bi bi-lightbulb-fill"></i>Areas of Interest</h3>
+                        <p>We welcome original contributions related (but not limited) to:</p>
+                        <ul class="list-styled">
+                            <li>Novel Deep Learning Architectures for Medical Data Analysis & Synthesis</li>
+                            <li>Generative Models for Predictive Healthcare & Disease Modeling</li>
+                            <li>Multimodal Learning (Imaging, Clinical, Genetic, etc.)</li>
+                            <li>Privacy-Preserving Techniques for Healthcare Data</li>
+                            <li>Explainable AI (XAI) for Medical Image Interpretation</li>
+                            <li>Clinical Applications & Impact of AI-Powered Medical Imaging</li>
+                            <li>Natural Language Processing (NLP) for Clinical Narratives</li>
+                            <li>Ethical Considerations in AI-Driven Healthcare</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <div class="col-lg-6">
+                    <div class="p-4 border rounded h-100 bg-white d-flex flex-column">
+                        <div> <h3 class="mb-3"><i class="bi bi-file-earmark-arrow-up-fill"></i>Submission Guidelines</h3>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item">
+                                    <strong class="d-block">📄 Format & Length:</strong>
+                                    Papers must be in <strong>PDF format</strong> and not exceed <strong>12 pages</strong> (including references). Please use the official <a href="https://drive.google.com/file/d/1NxtKBIzZARUUNeNuCUNIA6XtQ0RtL1NI/view?usp=sharing" target="_blank" rel="noopener noreferrer">LNCS template</a> (<a href="https://www.overleaf.com/read/bpkfqrbhcrcg" target="_blank" rel="noopener noreferrer">Overleaf</a>).
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="d-block">✨ Originality:</strong>
+                                    Submissions must be <strong>original work</strong>, not previously published or under review elsewhere.
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="d-block">💻 Submission Platform:</strong>
+                                    Submit your paper via the <a href="https://easychair.org/conferences/?conf=cvgmmi2025" target="_blank" rel="noopener noreferrer" class="fw-bold">EasyChair system</a>.
+                                </li>
+                                 <li class="list-group-item">
+                                    <strong class="d-block">📚 Proceedings:</strong>
+                                    Accepted papers will be published in the <a href="https://www.springer.com/series/0558" target="_blank" rel="noopener noreferrer">Springer Lecture Notes in Computer Science (LNCS) series</a> (indexed in Web of Science, Scopus, etc.).
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center mt-auto"> <a href="https://easychair.org/conferences/?conf=cvgmmi2025" class="btn btn-primary btn-lg text-white" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-send-fill"></i>Submit Your Paper Now!
+                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="p-4 border rounded bg-white mt-4">
+                <h3 class="mb-4 text-center"><i class="bi bi-calendar-check-fill"></i> Mark Your Calendar: Important Dates</h3>
+                
+                <dl class="row justify-content-center text-center text-md-start">
+                    
+                    <dt class="col-md-5 col-lg-4 fw-bold border-bottom pb-2 mb-2">Submission Deadline:</dt>
+                    <dd class="col-md-7 col-lg-8 border-bottom pb-2 mb-2"><span class="badge bg-danger fs-6">June 14, 2025</span></dd>
+        
+                    <dt class="col-md-5 col-lg-4 fw-bold border-bottom pb-2 mb-2">Notification to Authors:</dt>
+                    <dd class="col-md-7 col-lg-8 border-bottom pb-2 mb-2"><span>July 3, 2025</span></dd>
+        
+                    <dt class="col-md-5 col-lg-4 fw-bold border-bottom pb-2 mb-2">Camera-Ready Due:</dt>
+                    <dd class="col-md-7 col-lg-8 border-bottom pb-2 mb-2"><span>July 10, 2025</span></dd>
+        
+                    <dt class="col-md-5 col-lg-4 fw-bold pb-2">Workshop:</dt>
+                    <dd class="col-md-7 col-lg-8 pb-2"><span>Sept 15 or 16, 2025 (TBC)</span></dd>
+        
+                </dl>
+            </div>
 
-            <h3 class="mt-4">Important Dates</h3>
-            <ul class="list-unstyled dates-list">
-                <li><strong>Submission Deadline:</strong> <span>June 14, 2025</span></li>
-                <li><strong>Notification to Authors:</strong> <span>July 3, 2025</span></li>
-                <li><strong>Camera-Ready Submission:</strong> <span>July 10, 2025</span></li>
-                <li><strong>Workshop Dates:</strong> <span>(Coming Soon - either 15 or 16 of September 2025)</span></li>
-            </ul>
         </section>
-
         <section id="organizers" class="section-padding">
             <h2>Organizers</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="assets/daniele.jpeg" class="card-img-top" alt="Prof. Daniele Ravì"> <div class="card-body d-flex flex-column">
+                        <img src="assets/daniele.jpeg" class="card-img-top" alt="Prof. Daniele Ravì">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Prof. Daniele Ravì (Chair)</h5>
                             <h6 class="card-subtitle mb-2 text-muted">University of Messina & University College London</h6>
                             <p class="card-text small flex-grow-1">
@@ -229,7 +340,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                      <div class="card h-100">
-                        <img src="assets/lemuel.jpg" class="card-img-top" alt="Dr. Lemuel Puglisi"> <div class="card-body d-flex flex-column">
+                        <img src="assets/lemuel.jpg" class="card-img-top" alt="Dr. Lemuel Puglisi">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Dr. Lemuel Puglisi</h5>
                             <h6 class="card-subtitle mb-2 text-muted">University of Catania & University College London & Queen Square Analytics</h6>
                             <p class="card-text small flex-grow-1">
@@ -242,15 +354,15 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                        <img src="assets/not-confirmed.png" class="card-img-top" alt="Dr. Stefano Blumberg"> <div class="card-body d-flex flex-column">
+                        <img src="assets/not-confirmed.png" class="card-img-top" alt="Coming Soon">
+                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Coming Soon</h5>
                              <h6 class="card-subtitle mb-2 text-muted">N/A</h6>
                              <p class="card-text small flex-grow-1">
                                  <strong>Background:</strong> N/A
                                  <br><strong>Experience:</strong> N/A
                              </p>
-                              <a href="N/A" class="card-link small">N/A</a>
-                         </div>
+                              <a href="#" class="card-link small">N/A</a> </div>
                     </div>
                 </div>
             </div>
@@ -259,29 +371,10 @@
         <section id="speakers" class="section-padding bg-light rounded">
             <h2>Invited Speakers</h2>
              <div class="row">
-                 <!-- <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                         <img src="assets/arman.jpg" class="card-img-top" alt="Prof. Arman Eshaghi"> <div class="card-body">
-                            <h5 class="card-title">Prof. Arman Eshaghi</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">University College London</h6>
-                             <p class="speaker-status">(Tentative)</p>
-                             <p class="card-text small">Principal Research Fellow and NIHR Advanced Fellow at UCL. Specializes in applying AI/ML to neuroimaging data, particularly multiple sclerosis research. Develops advanced AI models for disease progression modeling and diagnostic accuracy in neurological conditions.</p>
-                        </div>
-                    </div>
-                </div>
                  <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                         <img src="assets/james.jpg" class="card-img-top" alt="Prof. James Cole"> <div class="card-body">
-                            <h5 class="card-title">Prof. James Cole</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">University College London</h6>
-                             <p class="speaker-status">(Tentative)</p>
-                            <p class="card-text small">Professor of Neuroimage Computing at UCL (CMIC & DRC). Research uses structural/functional MRI for brain aging, neurodegeneration, dementia. Developed ML techniques for predictive models of brain age from MRI data.</p>
-                        </div>
-                    </div>
-                </div> -->
-                 <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                         <img src="assets/celesti.jpeg" class="card-img-top" alt="Prof. Antonio Celesti"> <div class="card-body">
+                         <img src="assets/celesti.jpeg" class="card-img-top" alt="Prof. Antonio Celesti">
+                         <div class="card-body">
                             <h5 class="card-title">Prof. Antonio Celesti</h5>
                             <h6 class="card-subtitle mb-2 text-muted">University of Messina</h6>
                              <p class="speaker-status fw-bold text-success">(Confirmed)</p>
@@ -291,7 +384,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed"> <div class="card-body">
+                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed">
+                         <div class="card-body">
                             <h5 class="card-title">Coming Soon</h5>
                             <h6 class="card-subtitle mb-2 text-muted">N/A</h6>
                              <p class="speaker-status">(Tentative)</p>
@@ -301,7 +395,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
-                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed"> <div class="card-body">
+                         <img src="assets/not-confirmed.png" class="card-img-top" alt="Not Confirmed">
+                         <div class="card-body">
                             <h5 class="card-title">Coming Soon</h5>
                             <h6 class="card-subtitle mb-2 text-muted">N/A</h6>
                              <p class="speaker-status">(Tentative)</p>
@@ -324,7 +419,7 @@
             </ul>
         </section>
 
-    </main>
+        </main>
 
     <footer class="text-center text-muted">
         <div class="container">
@@ -332,35 +427,40 @@
             <p>Contact Workshop Chair: <a href="mailto:dravi@unime.it">Prof. Daniele Ravì</a></p>
 
             <div class="mt-4 d-flex justify-content-center align-items-center flex-wrap">
-                <a href="https://www.unime.it/" target="_blank" rel="noopener noreferrer" class="mx-3 my-2">
+                 <a href="https://www.unime.it/" target="_blank" rel="noopener noreferrer" class="mx-3 my-2">
                     <img src="assets/unime-tr.png" alt="University of Messina Logo" style="height: 100px;">
                 </a>
                 <a href="https://www.ucl.ac.uk/" target="_blank" rel="noopener noreferrer" class="mx-3 my-2">
                     <img src="assets/ucl.png" alt="University College London Logo" style="height: 100px;">
                 </a>
                 <a href="https://www.unict.it/" target="_blank" rel="noopener noreferrer" class="mx-3 my-2">
-                    <img src="assets/unict.png" alt="University of Catania Logo" style="height: 100px;";>
+                    <img src="assets/unict.png" alt="University of Catania Logo" style="height: 100px;">
                 </a>
             </div>
-            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
-        // Example: Smooth scrolling for navbar links (Optional)
         document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    // Calculate position considering the fixed navbar height
-                    const offsetTop = targetElement.offsetTop - 56; // Adjust 56 if navbar height changes
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                try {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        // Calculate position considering the fixed navbar height (56px)
+                        const offsetTop = targetElement.offsetTop - 56;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        console.warn("Smooth scroll target not found:", targetId);
+                    }
+                } catch (error) {
+                     console.error("Error finding smooth scroll target:", error);
                 }
             });
         });
